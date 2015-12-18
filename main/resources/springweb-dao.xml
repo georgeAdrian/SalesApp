@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+<!--
+	<bean id="userDao" class="com.softtek.salesapplication.dao.impl.UserDaoImpl">
+-->
+<!--         <property name="dataSource" ref="dataSource"/> -->
+<!--     </bean> -->
+<!--      -->
+
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<property name="dataSource" ref="dataSource"/>
+</bean>
+
+<bean id="CatalogoDao" class="com.softtek.salesapplication.dao.impl.CatalogoDaoImpl">
+<property name="jdbcTemplate" ref="jdbcTemplate"/>
+</bean>
+<bean id="ProductsDao" class="com.softtek.salesapplication.dao.impl.ProductDaoImpl">
+<property name="jdbcTemplate" ref="jdbcTemplate"/>
+</bean>
+</beans>
